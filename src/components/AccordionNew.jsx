@@ -28,14 +28,14 @@ const AccordionNew = () => {
     
     return (
         <>
-            <Div> Accordion working </Div>
+            <div> Accordion working </div>
             {accordionData.map((section, index) =>  (
                 <div key={index}> 
-                    <div onClick={() => handleToggle(index)}>
+                    <div onClick={() => handleToggle(index)} className="flex justify-center items-center gap-2">
                     <h3>{section.title}</h3>
                     {activeIndex === index ? <span>-</span> : <span>+</span>}
                     </div>
-                    <p>{activeIndex === index ? section.content : null}</p>
+                    <p className="flex justify-center items-center">{activeIndex === index ? section.content : null}</p>
                     
                 </div>
             ))}

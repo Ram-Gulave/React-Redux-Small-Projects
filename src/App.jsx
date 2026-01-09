@@ -5,8 +5,9 @@ import Product from "./components/Product";
 import { ClearCart } from "./redux/slice";
 import CartList from "./components/CartList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Accordion from "./components/Accordion";
+// import Accordion from "./components/Accordion";
 import AccordionNew from "./components/AccordionNew";
+import ContactForm from "./components/ContactForm";
 
 function App() {
 	const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
 				</Routes>
 				{/* <Accordion /> */}
 				<AccordionNew />
+				<ContactForm />
 			</BrowserRouter >
 		</>
 	)
