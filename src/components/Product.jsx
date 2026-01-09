@@ -1,8 +1,8 @@
-import {useDispatch} from "react-redux";
-import {AddItem, RemoveItem} from "../redux/slice";
-import {useEffect} from "react";
-import {fetchProducts} from "../redux/productSlice";   
-import {useSelector} from "react-redux"; 
+import { useDispatch } from "react-redux";
+import { AddItem, RemoveItem } from "../redux/slice";
+import { useEffect } from "react";
+import { fetchProducts } from "../redux/productSlice";
+import { useSelector } from "react-redux";
 
 const Product = () => {
 
@@ -12,30 +12,38 @@ const Product = () => {
         dispatch(fetchProducts());
     }, []);
 
-    const seletor = useSelector((state) => state.products.items);
-    console.log(seletor);
+    const productSeletor = useSelector((state) => state.products.items);
+    // console.log(productSeletor);
+
+    const cartSelector = useSelector((state) => state.cart);
+    console.log(cartSelector);
 
     return (
-        <section className="product-section">
-            <div className="product-container">
-                <div className="image-area">
-                    <img src="/laptop.jpg" alt="Product Image" className="product-image" />
-                </div>
-                <div className="details-area">
-                    <h1 className="product-title">Sample Product Name</h1>
-                    <p className="product-description">
-                        This is a detailed description of the product. It covers features, benefits,
-                        materials used, dimensions, quality, and why you should buy it.
-                    </p>
-                    <div className="price-stock">
-                        <span className="product-price">$49.99</span>
-                        <span className="product-stock">In Stock</span>
+        <div className="grid">
+            {
+                productSeletor.length && productSeletor.map((item, id) => (
+                    <div key={id} className="card">
+                        <img src={item.thumbnail} alt="product-image" className="card-image" />
+                        <div className="card-content">
+                            <h4 className="card-title">{item.title}</h4>
+                            <p className="card-description">{item.description}</p>
+                            <div className="card-action">
+                                <span className="card-price">${item.price}</span>
+
+                                {
+                                    cartSelector.value.find(cartItem => cartItem.id === item.id) ?
+                                    <button onClick={() => dispatch(RemoveItem(item.id))} className="btn btn-danger btn-sm ml-2">Remove from Cart</button>
+                                    :
+                                    <button onClick={() => dispatch(AddItem(item))} className="btn btn-primary btn-sm">Add to Cart</button>
+                                }
+                                <div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button onClick={() => dispatch(AddItem())} className="add-to-cart-btn">Add to Cart</button>
-                    <button onClick={() => dispatch(RemoveItem())} className="add-to-cart-btn">Remove from Cart</button>
-                </div>
-            </div>
-        </section>
+                ))
+            }
+        </div>
     )
 }
 

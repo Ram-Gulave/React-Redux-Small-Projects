@@ -3,18 +3,30 @@ import { useDispatch } from "react-redux";
 import './App.css';
 import Product from "./components/Product";
 import { ClearCart } from "./redux/slice";
+import CartList from "./components/CartList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Accordion from "./components/Accordion";
+import AccordionNew from "./components/AccordionNew";
 
 function App() {
 	const dispatch = useDispatch();
 
 	return (
 		<>
-			<Header />
+			<BrowserRouter>
+			<Header path="/" />
 			<div className="app-background container">
 				<h3 className="">Remove all items from cart</h3>
 				<button onClick={() => dispatch(ClearCart())} className="btn btn-danger">Clear Cart</button>
 			</div>
-			<Product />
+				<Routes>
+					<Route path="/" element={<Product />} />
+					<Route path="/cart" element={<CartList />} />
+				
+				</Routes>
+				{/* <Accordion /> */}
+				<AccordionNew />
+			</BrowserRouter >
 		</>
 	)
 }

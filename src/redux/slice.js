@@ -1,26 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value : 0
+    value : localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 }
 
 const addToCart = createSlice({
     name : 'cart',
     initialState,
     reducers: {
-        AddItem : (state) => {
-            state.value += 1;
+        AddItem : (state, action) => {
+            // state.value += 1;
+            state.value.push(action.payload);
+            localStorage.setItem('cart', JSON.stringify(state.value));
+            console.log(action.payload);
+            
         },
-        RemoveItem : (state) => {
-            state.value > 0 ? state.value -= 1 : state.value = 0;
-            // if(state.value > 0){
-            //     state.value -= 1;
-            // } else {
-            //     state.value = 0;
-            // }
-        },
+        RemoveItem : (state, action) => {
+            const itemIndex = state.value.findIndex(item => item.id === action.payload);
+            console.log(action.payload);
+            if (itemIndex !== -1) {
+                state.value.splice(itemIndex, 1);
+            } else {
+                console.warn(`Item with id ${action.payload} not found in cart.`);
+            }
+            localStorage.setItem('cart', JSON.stringify(state.value)); },
         ClearCart : (state) => {
-            state.value = 0;
+            state.value = [];
         }
     }
 })
