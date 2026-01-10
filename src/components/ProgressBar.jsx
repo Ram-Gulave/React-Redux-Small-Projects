@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 
 export default function App() {
@@ -8,12 +9,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen p-6 bg-gray-100">
       <h1 className="text-2xl font-bold mb-4">Animated Progress Bars</h1>
 
       <button
         onClick={addBar}
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        className="px-4 py-2 bg-blue-600 text-white rounded"
       >
         Add
       </button>
@@ -31,33 +32,29 @@ function ProgressBar() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let start = null;
     const duration = 2000;
+    const interval = 20; // ms
+    const step = 100 / (duration / interval);    // Calculate step size based on duration and interval 
 
-    const animate = (timestamp) => {
-      if (!start) start = timestamp;
-      const elapsed = timestamp - start;
+    const id = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {                        // Stop at 100%
+          clearInterval(id);
+          return 100;
+        }        
+        return prev + step;                       // Increment progress until 100%
+      });
+    }, interval);
 
-      const percent = Math.min((elapsed / duration) * 100, 100);
-      setProgress(percent);
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
+    return () => clearInterval(id);               // Cleanup on unmount when step completes
   }, []);
 
   return (
-    <div className="relative w-full bg-gray-300 h-6 rounded overflow-hidden">
+    <div className="w-full bg-gray-300 h-6 rounded overflow-hidden">
       <div
-        className="h-full bg-green-500 transition-all duration-150"
+        className="h-full bg-green-500"
         style={{ width: `${progress}%` }}
-      ></div>
-      <span className="absolute inset-0 flex items-center justify-center text-white font-semibold">
-        {Math.round(progress)}%
-      </span>
+      />
     </div>
   );
 }
