@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AccordionNew from "./components/AccordionNew";
 import ContactForm from "./components/ContactForm";
 import ProgressBar from "./components/ProgressBar";
+import ProgressOpenBar from "./components/ProgressOpenBar";
+import MortageCalculator from "./components/MortageCalculator";
 
 function App() {
 	const dispatch = useDispatch();
@@ -29,7 +31,9 @@ function App() {
 				{/* <Accordion /> */}
 				<AccordionNew />
 				<ContactForm />
-				<ProgressBar />
+				{/* <ProgressBar /> */}
+				<ProgressOpenBar />
+				<MortageCalculator />
 			</BrowserRouter >
 		</>
 	)
