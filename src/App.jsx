@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Accordion from "./components/Accordion";
 import AccordionNew from "./components/AccordionNew";
 import ContactForm from "./components/ContactForm";
+import ProgressBar from "./components/ProgressBar";
 
 function App() {
 	const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
 				{/* <Accordion /> */}
 				<AccordionNew />
 				<ContactForm />
+				<ProgressBar />
 			</BrowserRouter >
 		</>
 	)
