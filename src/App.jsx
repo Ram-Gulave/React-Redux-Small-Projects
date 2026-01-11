@@ -8,9 +8,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Accordion from "./components/Accordion";
 import AccordionNew from "./components/AccordionNew";
 import ContactForm from "./components/ContactForm";
-import ProgressBar from "./components/ProgressBar";
+// import ProgressBar from "./components/ProgressBar";
 import ProgressOpenBar from "./components/ProgressOpenBar";
 import MortageCalculator from "./components/MortageCalculator";
+import ToDoList from "./components/ToDoList";
 
 function App() {
 	const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
 					<Route path="/cart" element={<CartList />} />
 				
 				</Routes>
+				<ToDoList />
 				{/* <Accordion /> */}
 				<AccordionNew />
 				<ContactForm />
