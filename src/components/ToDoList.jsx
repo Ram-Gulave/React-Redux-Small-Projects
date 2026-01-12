@@ -15,9 +15,11 @@ function ToDoList() {
     };
 
     const RemoveTasks = (index) => {
-        const newTodo = [...todo];
-        newTodo.splice(index, 1);
-        setTodo(newTodo)
+        // const newTodo = [...todo];
+        // newTodo.splice(index, 1);
+        // setTodo(newTodo)
+        const newTodo = todo.filter((_, i) => i !== index);
+        setTodo(newTodo);
     }
 
     const toggleTasks = (index) => {
