@@ -20,6 +20,7 @@ import ModelComponent from "./components/ModelComponent"
 import Carousel from "./components/Carousel";
 import StarRatings from "./components/StarRatings";
 import MultiForm from "./components/MultiForm";
+import VirtualizedList from "./components/VirtualizedList";
 
 function App() {
 	const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
 			<Carousel />
 			<StarRatings />
 			<MultiForm />
+			<VirtualizedList />
 		</>
 	)
 }
