@@ -19,6 +19,7 @@ import TabsComponents from "./components/TabsComponent";
 import ModelComponent from "./components/ModelComponent"
 import Carousel from "./components/Carousel";
 import StarRatings from "./components/StarRatings";
+import MultiForm from "./components/MultiForm";
 
 function App() {
 	const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function App() {
 			<Search />
 			<Carousel />
 			<StarRatings />
+			<MultiForm />
 		</>
 	)
 }
