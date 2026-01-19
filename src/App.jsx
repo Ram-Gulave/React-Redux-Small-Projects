@@ -21,6 +21,7 @@ import Carousel from "./components/Carousel";
 import StarRatings from "./components/StarRatings";
 import MultiForm from "./components/MultiForm";
 import VirtualizedList from "./components/VirtualizedList";
+import ClickFields from "./components/ClickFields";
 
 function App() {
 	const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function App() {
 			<StarRatings />
 			<MultiForm />
 			<VirtualizedList />
+			<ClickFields />
 		</>
 	)
 }
