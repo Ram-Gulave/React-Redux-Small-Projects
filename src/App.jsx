@@ -22,6 +22,7 @@ import StarRatings from "./components/StarRatings";
 import MultiForm from "./components/MultiForm";
 import VirtualizedList from "./components/VirtualizedList";
 import ClickFields from "./components/ClickFields";
+import AddFruitsItems from "./components/AddFruitsItems";
 
 function App() {
 	const dispatch = useDispatch();
@@ -57,6 +58,7 @@ function App() {
 			<MultiForm />
 			<VirtualizedList />
 			<ClickFields />
+			<AddFruitsItems />
 		</>
 	)
 }
