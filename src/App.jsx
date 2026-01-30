@@ -23,6 +23,7 @@ import MultiForm from "./components/MultiForm";
 import VirtualizedList from "./components/VirtualizedList";
 import ClickFields from "./components/ClickFields";
 import AddFruitsItems from "./components/AddFruitsItems";
+import Practice from "./components/Pratice"
 
 function App() {
 	const dispatch = useDispatch();
@@ -59,6 +60,7 @@ function App() {
 			<VirtualizedList />
 			<ClickFields />
 			<AddFruitsItems />
+			<Practice />
 		</>
 	)
 }
