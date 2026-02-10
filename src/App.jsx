@@ -24,6 +24,7 @@ import VirtualizedList from "./components/VirtualizedList";
 import ClickFields from "./components/ClickFields";
 import AddFruitsItems from "./components/AddFruitsItems";
 import Practice from "./components/Pratice"
+import ToDoListRTK from "./components/toDoListRTK";
 
 function App() {
 	const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
 
 				</Routes>
 			</BrowserRouter >
+			<ToDoListRTK />
 			<DropDownMenuBar />
 			<TabsComponents />
 			<ModelComponent />
