@@ -26,13 +26,15 @@ import AddFruitsItems from "./components/AddFruitsItems";
 import Practice from "./components/Pratice"
 import ToDoListRTK from "./components/toDoListRTK";
 import MultoPageForm from "./components/MultiPageForm";
+import MultoPageFormRTK from "./components/MultiPageFormRTK";
 
 function App() {
 	const dispatch = useDispatch();
 
 	return (
 		<>
-			<MultoPageForm/>
+			<MultoPageFormRTK />
+			{/* <MultoPageForm/> */}
 			<BrowserRouter>
 				<Header path="/" />
 				<div className="app-background container">
